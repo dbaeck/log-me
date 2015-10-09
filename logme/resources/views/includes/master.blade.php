@@ -17,7 +17,9 @@
             @yield('content')
         </div>
     </div>
-
+    <div class="row">
+        <hr/>
+    </div>
     <div class="row">
         @include('includes.debug')
     </div>
