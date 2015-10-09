@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>--}}
 </head>
 <body>
 <div class="container">
@@ -25,5 +25,9 @@
     </div>
 
 </div>
+
+<script src="{{ asset('date-range-parser.js') }}"></script>
+<script src="{{ asset('vue.js') }}"></script>
+<script src="{{ asset('main.js') }}"></script>
 </body>
 </html>
