@@ -1,0 +1,19 @@
+{
+  "name": "logme",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dbaeck/log-me",
+  "authors": [
+    "Daniel Baeck <db@sharpsrc.net>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "~0.12.16"
+  }
+}
