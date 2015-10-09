@@ -19,4 +19,4 @@ Route::get('/', function () {
         ->with('activities', \App\Activity::all());
 });
 
-Route::post('/log', ['as' => 'api::log', 'uses' => 'App\ActivityTracker@create']);
+Route::post('/log', ['as' => 'api::log', 'uses' => 'ActivityTracker@store']);

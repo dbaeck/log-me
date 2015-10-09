@@ -37,7 +37,7 @@
             <div class="panel-heading">Activity</div>
             <div class="panel-body">
                 @foreach($activities as $activity)
-                    {{ $activity->project_id }} - {{ $activity->comment }}
+                    {{ $activity->project_id }} - {{ $activity->start }} : {{ $activity->end }} - {{ $activity->comment }}
                     <hr/>
                 @endforeach
             </div>
