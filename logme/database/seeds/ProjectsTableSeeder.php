@@ -16,6 +16,6 @@ class ProjectsTableSeeder extends Seeder
             'id' => '1',
            'title' => 'logme'
         ]);
-        factory(App\Project::class, 10)->create();
+        factory(App\Project::class, 5)->create();
     }
 }

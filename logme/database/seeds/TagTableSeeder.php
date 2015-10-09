@@ -12,6 +12,6 @@ class TagTableSeeder extends Seeder
     public function run()
     {
         DB::table('tags')->delete();
-        factory(App\Tag::class, 20)->create();
+        factory(App\Tag::class, 5)->create();
     }
 }

@@ -17,6 +17,6 @@ class UserTableSeeder extends Seeder
         $user->email = 'hi@0xdb.pw';
         $user->name = 'Daniel Baeck';
         $user->save();
-        factory(App\User::class, 20)->create();
+        factory(App\User::class, 5)->create();
     }
 }

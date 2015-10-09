@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('includes.debug')
+    return view('welcome')
         ->with('users', \App\User::all())
         ->with('projects', \App\Project::all())
         ->with('tags', \App\Tag::all())
