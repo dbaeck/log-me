@@ -20,4 +20,9 @@ class FeatureContext extends \Behat\MinkExtension\Context\MinkContext implements
     public function __construct()
     {
     }
+
+    public function track($string)
+    {
+        
+    }
 }
