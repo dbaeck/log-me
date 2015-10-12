@@ -6,21 +6,21 @@ Feature: Track My Project Times
 
   Scenario: I can add a session on a project
   	When I track "10 minutes @log-me"
-    Then I see activity "log-me" 10
+    Then I see activity "log-me" 600
   	When I track "1 minute @log-me"
-    Then I see activity "log-me" 1
-  	When I track "10 min @log-me"
-    Then I see activity "log-me" 10
-  	When I track "10m @log-me"
-    Then I see activity "log-me" 10
-  	When I track "20mins @log-me"
-    Then I see activity "log-me" 20
-  	When I track "30 mins @log-me"
-    Then I see activity "log-me" 30
-  	When I track "1h @log-me"
     Then I see activity "log-me" 60
+  	When I track "10 min @log-me"
+    Then I see activity "log-me" 600
+  	When I track "10m @log-me"
+    Then I see activity "log-me" 600
+  	When I track "20mins @log-me"
+    Then I see activity "log-me" 1200
+  	When I track "30 mins @log-me"
+    Then I see activity "log-me" 1800
+  	When I track "1h @log-me"
+    Then I see activity "log-me" 3600
   	When I track "1.5h @log-me"
-    Then I see activity "log-me" 90
+    Then I see activity "log-me" 5400
   	When I track "1.5 h @log-me"
     Then I see activity "log-me" 90
   	When I track "2h 11m @log-me"

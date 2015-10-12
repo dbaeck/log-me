@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     protected $fillable = ['project_id', 'comment', 'user_id', 'value', 'starttime', 'endtime', 'value_type_id'];
+    protected $dates = ['created_at', 'updated_at', 'disabled_at', 'starttime', 'endtime'];
 
     public function user()
     {
@@ -16,7 +17,7 @@ class Activity extends Model
 
     public function tags()
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function project()
@@ -37,22 +38,34 @@ class Activity extends Model
             ->findProjects()
             ->processComments();
 
+        $loggedTime = $tokenizer->getTimes();
+
         $activities = [];
 
-        foreach($tokenizer->projects as $proj)
+        foreach($tokenizer->projects as $projectStr)
         {
-            $project = $user->projects()->where('title', $proj)->firstOrFail();
+            $project = $user->projects()->where('title', $projectStr)->firstOrFail();
             $activity = new Activity([
                 'user_id' => $user->id,
                 'project_id' => $project->id,
                 'comment' => $tokenizer->comments,
-                'value' => 10,
-                'starttime' => Carbon::now(),
-                'endtime' => Carbon::now(),
+                'value' => $loggedTime->seconds,
+                'starttime' => $loggedTime->start,
+                'endtime' => $loggedTime->stop,
                 'value_type_id' => 1
             ]);
 
             $activity->save();
+
+            foreach($tokenizer->tags as $tagStr)
+            {
+                $tag = $user->tags()->where('title', $tagStr)->first();
+                if(!isset($tag))
+                    $tag = Tag::create(['title' => $tagStr, 'user_id' => $user->id]);
+
+                $activity->tags()->save($tag);
+            }
+
             $activities[] = $activity;
         }
 

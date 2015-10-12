@@ -49,10 +49,16 @@ class Tokenizer {
         return $this->matchRegex("/@[\w-]+/", 'projects', '@');
     }
 
+    public function getTimes()
+    {
+        $parts = explode(self::SplitToken, $this->str);
+        return (new TimeParser($parts))->parse();
+    }
+
     public function processComments(){
         $parts = explode(self::SplitToken, $this->str);
-        $parts = array_map('trim', $parts);
-        $this->escapedComments = array_map('trim', $this->escapedComments);
+        $parts = array_filter(array_map('trim', $parts));
+        $this->escapedComments = array_filter(array_map('trim', $this->escapedComments));
         $sep = count($this->escapedComments) > 0 ? ', ' : '';
         $this->comments = implode(", ", $this->escapedComments) . $sep . implode(", ", $parts);
 

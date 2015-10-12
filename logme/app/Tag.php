@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    protected $fillable = ['title', 'user_id'];
+
     public function projects()
     {
         return $this->hasMany(Project::class);
@@ -18,6 +20,6 @@ class Tag extends Model
 
     public function activities()
     {
-        return $this->hasMany(Activity::class);
+        return $this->belongsToMany(Activity::class);
     }
 }

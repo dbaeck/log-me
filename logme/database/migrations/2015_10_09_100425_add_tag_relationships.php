@@ -18,7 +18,6 @@ class AddTagRelationships extends Migration
             $table->foreign('project_id')->references('id')->on('projects');
             $table->integer('tag_id')->unsigned();
             $table->foreign('tag_id')->references('id')->on('tags');
-            $table->timestamps();
         });
 
         Schema::create('activity_tag', function (Blueprint $table) {
@@ -27,7 +26,6 @@ class AddTagRelationships extends Migration
             $table->foreign('activity_id')->references('id')->on('activities');
             $table->integer('tag_id')->unsigned();
             $table->foreign('tag_id')->references('id')->on('tags');
-            $table->timestamps();
         });
     }
 

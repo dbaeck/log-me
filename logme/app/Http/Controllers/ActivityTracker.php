@@ -18,7 +18,13 @@ class ActivityTracker extends Controller
      */
     public function index()
     {
-        //
+        $activities = \App\Activity::all()->with('project')->with('tags');
+
+        return view('welcome')
+            ->with('users', \App\User::all())
+            ->with('projects', \App\Project::all())
+            ->with('tags', \App\Tag::all())
+            ->with('activities', $activities);
     }
 
     /**

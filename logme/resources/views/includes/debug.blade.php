@@ -37,7 +37,12 @@
             <div class="panel-heading">Activity</div>
             <div class="panel-body">
                 @foreach($activities as $activity)
-                    {{ $activity->project_id }} - {{ $activity->start }} : {{ $activity->end }} - {{ $activity->comment }}
+                    {{ $activity->project->title }} - {{ $activity->starttime->toDateTimeString() }} : {{ $activity->endtime->toDateTimeString() }} - ( {{ $activity->value }} ) - {{ $activity->comment }}
+[
+                    @foreach($activity->tags as $tag)
+                        #{{ $tag->title }}
+                        @endforeach
+]
                     <hr/>
                 @endforeach
             </div>
