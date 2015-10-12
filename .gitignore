@@ -4,3 +4,4 @@
 .env
 logme/.idea/*
 logme/bower_components/*
+logme/.env.behat
