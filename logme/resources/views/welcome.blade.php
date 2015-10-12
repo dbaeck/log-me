@@ -8,21 +8,26 @@
         <form action="{{ route('api::log') }}" method="post">
             {{ csrf_field() }}
             <div class="form-group">
-                <label for="activity">What did you do?</label>
-                <input type="text" class="form-control" name="activity" v-model="activity" id="activity" placeholder="Working on @logme for 30 minutes #coding">
-            </div>
-            <div class="form-group">
-                <button type="submit" id="submit">Submit</button>
-            </div>
-
-            <div class="form-group">
-                <label>What I understand:</label>
-                <div v-text="interval"></div>
-                <div v-text="projects"></div>
-                <div v-text="tags"></div>
+                <label for="activity">What can I track for you?</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="activity" v-model="activity" id="activity" placeholder="Working on @log-me for 30 minutes #coding">
+                    <span class="input-group-btn">
+                        <button type="submit" id="submit" class="btn btn-submit">Submit</button>
+                    </span>
+                </div>
 
             </div>
-
         </form>
+
+
+        <div class="form-group">
+            <label>Ok, I'm going to</label>
+            <ul>
+                <li>Log some time</li>
+                <li>on the project(s) @{{ projects }}</li>
+                <li>with the tag(s) @{{ tags }}</li>
+            </ul>
+
+        </div>
     </div>
 @endsection

@@ -1,0 +1,23 @@
+language: php
+php:
+  - 5.6
+sudo: false
+before_script:
+  # setup sqlite
+  # update composer
+  # chmod storage
+  # migrate and seed db
+  - cd logme
+  - mv .env.behat.travis .env.behat
+  - chmod -R 777 storage
+  - touch storage/acceptance.sqlite
+  - composer self-update
+  - composer install --prefer-source
+  - php artisan key:generate
+  - php artisan migrate
+  - php artisan db:seed
+  #- npm install, gulp later
+script:
+  #- gulp #
+  - phpunit tests/
+  - vendor/bin/behat --config behat.yml
