@@ -14,8 +14,8 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('start');
-            $table->dateTime('end');
+            $table->dateTime('starttime');
+            $table->dateTime('endtime');
             $table->double('value');
             $table->text('comment')->nullable();
             $table->boolean('exact')->default(false);

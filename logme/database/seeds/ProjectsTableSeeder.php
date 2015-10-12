@@ -13,13 +13,15 @@ class ProjectsTableSeeder extends Seeder
     {
         DB::table('projects')->delete();
         factory(App\Project::class)->create([
-            'id' => '1',
-           'title' => 'log-me'
+            'id' => 1,
+           'title' => 'log-me',
+            'user_id' => 1
         ]);
 
         factory(App\Project::class)->create([
             'id' => '2',
-            'title' => 'other-stuff'
+            'title' => 'other-stuff',
+            'user_id' => 1
         ]);
 
         factory(App\Project::class, 3)->create();

@@ -44,8 +44,8 @@ $factory->define(App\Activity::class, function (Faker\Generator $faker) {
     $end = $start->add(new DateInterval('PT'.$value.'M'));
 
     return [
-        'start' => $start,
-        'end' => $end,
+        'starttime' => $start,
+        'endtime' => $end,
         'value' => $value,
         'comment' => $faker->sentence(),
         'exact' => false,
