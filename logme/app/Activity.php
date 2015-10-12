@@ -35,10 +35,11 @@ class Activity extends Model
         $tokenizer = (new Tokenizer($str))
             ->findEscapedComments()
             ->findTags()
-            ->findProjects()
-            ->processComments();
+            ->findProjects();
 
         $loggedTime = $tokenizer->getTimes();
+
+        $tokenizer->stripTimes()->processComments();
 
         $activities = [];
 

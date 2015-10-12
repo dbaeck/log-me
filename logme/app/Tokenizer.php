@@ -55,6 +55,12 @@ class Tokenizer {
         return (new TimeParser($parts))->parse();
     }
 
+    public function stripTimes()
+    {
+        $this->str = preg_replace(TimeParser::getStripRegex(), '', $this->str);
+        return $this;
+    }
+
     public function processComments(){
         $parts = explode(self::SplitToken, $this->str);
         $parts = array_filter(array_map('trim', $parts));
