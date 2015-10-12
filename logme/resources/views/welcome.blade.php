@@ -12,6 +12,10 @@
                 <input type="text" class="form-control" name="activity" v-model="activity" id="activity" placeholder="Working on @logme for 30 minutes #coding">
             </div>
             <div class="form-group">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+
+            <div class="form-group">
                 <label>What I understand:</label>
                 <div v-text="interval"></div>
                 <div v-text="projects"></div>

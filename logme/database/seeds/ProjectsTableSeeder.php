@@ -14,8 +14,14 @@ class ProjectsTableSeeder extends Seeder
         DB::table('projects')->delete();
         factory(App\Project::class)->create([
             'id' => '1',
-           'title' => 'logme'
+           'title' => 'log-me'
         ]);
-        factory(App\Project::class, 5)->create();
+
+        factory(App\Project::class)->create([
+            'id' => '2',
+            'title' => 'other-stuff'
+        ]);
+
+        factory(App\Project::class, 3)->create();
     }
 }
