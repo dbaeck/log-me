@@ -9,6 +9,7 @@ before_script:
   # migrate and seed db
   - cd logme
   - mv .env.behat.travis .env.behat
+  - mv .env.behat.travis .env
   - chmod -R 777 storage
   - touch storage/acceptance.sqlite
   - composer self-update
