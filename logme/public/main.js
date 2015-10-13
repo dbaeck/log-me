@@ -45,6 +45,10 @@ new Vue({
         },
         tags: function(){
             return findTags(this.activity).join(", ");
+        },
+        "class": function(){
+            var countProjects = findProjects(this.activity).length;
+            return countProjects > 0 ? 'success':'alert';
         }
     }
 });

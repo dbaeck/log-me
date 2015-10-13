@@ -12,7 +12,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" name="activity" v-model="activity" id="activity" placeholder="Working on @log-me for 30 minutes #coding">
                     <span class="input-group-btn">
-                        <button type="submit" id="submit" class="btn btn-submit">Submit</button>
+                        <button type="submit" id="submit" class="btn btn-submit btn-@{{ class }}">Submit</button>
                     </span>
                 </div>
 
