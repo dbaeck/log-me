@@ -17,8 +17,9 @@ before_script:
   - php artisan key:generate
   - php artisan migrate
   - php artisan db:seed
-  #- npm install, gulp later
+  - npm --loglevel win install gulp
+  - npm --loglevel win install
 script:
-  #- gulp #
+  - gulp
   - phpunit tests/
   - vendor/bin/behat --config behat.yml

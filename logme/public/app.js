@@ -36,9 +36,6 @@ new Vue({
               toParse = toParse.replace(el, "");
           });
 
-          s = new Date(dateRangeParser.parse(toParse).start).toString();
-          e = new Date(dateRangeParser.parse(toParse).end).toString();
-          return s + " - " + e;
       },
         projects: function(){
             return findProjects(this.activity).join(", ");
@@ -52,3 +49,4 @@ new Vue({
         }
     }
 });
+//# sourceMappingURL=app.js.map
