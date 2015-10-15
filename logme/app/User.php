@@ -47,6 +47,25 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany(Tag::class);
     }
 
+    public function tagsWithCount()
+    {
+        return $this->tags()
+            ->selectRaw('tags.*, count(*) as activity_count')
+            ->leftJoin('activity_tag', 'tags.id','=','tag_id')
+            ->groupBy('tags.id')
+            ->orderBy('activity_count');
+    }
+
+    public function recentProjects()
+    {
+        return $this->projects()
+            ->selectRaw('projects.*, activities.updated_at as last_usage')
+            ->leftJoin('activities', 'activities.project_id', '=', 'projects.id')
+            ->groupBy('projects.id')
+            ->groupBy('activities.updated_at')
+            ->orderBy('activities.updated_at');
+    }
+
     public function activities()
     {
         return $this->hasMany(Activity::class);

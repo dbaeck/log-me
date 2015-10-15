@@ -11,6 +11,13 @@ use App\Http\Controllers\Controller;
 
 class ActivityTracker extends Controller
 {
+    protected $user;
+
+    public function __construct()
+    {
+        $this->user = User::firstOrNew(['id' => 1]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,13 +25,16 @@ class ActivityTracker extends Controller
      */
     public function index()
     {
-        $activities = \App\Activity::all()->with('project')->with('tags');
-
+//        dd($this->user->recentProjects()->get());
         return view('welcome')
-            ->with('users', \App\User::all())
-            ->with('projects', \App\Project::all())
-            ->with('tags', \App\Tag::all())
-            ->with('activities', $activities);
+            ->with('projects', $this->user->recentProjects())
+            ->with('tags', $this->user->tagsWithCount()->get())
+            ->with('activities', $this->user->activities()->recent()->get());
+    }
+
+    public function tags()
+    {
+        return $this->user->tagsWithCount()->get()->toJson();
     }
 
     /**

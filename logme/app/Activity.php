@@ -30,6 +30,11 @@ class Activity extends Model
         return $this->hasOne(ValueType::class);
     }
 
+    public function scopeRecent($query, $limit = 10)
+    {
+        return $query->orderBy('updated_at', 'desc')->limit($limit);
+    }
+
     public static function createFromString($user, $str)
     {
         $tokenizer = (new Tokenizer($str))

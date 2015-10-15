@@ -16,6 +16,29 @@ function findProjects(str)
     return str.match(re);
 }
 
+function startLoading(el)
+{
+    el.html('Loading');
+}
+
+function finishLoading(el)
+{
+    el.html('');
+}
+
+$(document).ready(function(){
+
+    $('.tagcloud').each(function(){
+        var src = $(this).data('src');
+        var el = $(this);
+        startLoading(el);
+        $.getJSON(src, function(data){
+            finishLoading(el);
+            el.jQCloud(data);
+        });
+    });
+});
+
 new Vue({
    el: '#entry',
     data: {

@@ -11,12 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome')
-        ->with('users', \App\User::all())
-        ->with('projects', \App\Project::all())
-        ->with('tags', \App\Tag::all())
-        ->with('activities', \App\Activity::all());
-});
-
+Route::get('/', 'ActivityTracker@index');
 Route::post('/log', ['as' => 'api::log', 'uses' => 'ActivityTracker@store']);
+Route::get('/tags', ['as' => 'api::tags', 'uses' => 'ActivityTracker@tags']);
+

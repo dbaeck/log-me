@@ -1,33 +1,38 @@
 @extends('includes.master')
 
 @section('content')
-    <h1>LogMe</h1>
-    <p>Track anything. Easily.</p>
-    <div class="col-md-6 col-md-offset-3" id="entry">
-
-        <form action="{{ route('api::log') }}" method="post">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <label for="activity">What can I track for you?</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" name="activity" v-model="activity" id="activity" placeholder="Working on @log-me for 30 minutes #coding">
-                    <span class="input-group-btn">
-                        <button type="submit" id="submit" class="btn btn-submit btn-@{{ class }}">Submit</button>
-                    </span>
-                </div>
-
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6 col-md-offset-3" id="entry">
+                @include('tracking')
             </div>
-        </form>
-
-
-        <div class="form-group">
-            <label>Ok, I'm going to</label>
-            <ul>
-                <li>Log some time</li>
-                <li>on the project(s) @{{ projects }}</li>
-                <li>with the tag(s) @{{ tags }}</li>
-            </ul>
-
         </div>
+        <div class="col-md-12">
+            <hr/>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">Recent Activity</div>
+                <div class="panel-body">
+                    @include('activity.list')
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Your Projects</div>
+                <div class="panel-body">
+                    @include('projects.list')
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Your Tags</div>
+                <div class="panel-body">
+                    @include('tags.list')
+                </div>
+            </div>
+        </div>
+
     </div>
+
 @endsection
