@@ -21,9 +21,9 @@
         </td>
         <td>
             <div class="btn-group">
-                <button class="btn btn-xs btn-info">Info</button>
-                <button class="btn btn-xs btn-default">Edit</button>
-                <button class="btn btn-xs btn-warning">Delete</button>
+                <button class="btn btn-xs btn-info"><i class="fa fa-info-circle"></i></button>
+                <button class="btn btn-xs btn-default"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-xs btn-warning"><i class="fa fa-remove"></i></button>
             </div>
         </td>
     </tr>
