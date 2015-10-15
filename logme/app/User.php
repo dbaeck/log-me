@@ -62,8 +62,7 @@ class User extends Model implements AuthenticatableContract,
             ->selectRaw('projects.*, activities.updated_at as last_usage')
             ->leftJoin('activities', 'activities.project_id', '=', 'projects.id')
             ->groupBy('projects.id')
-            ->groupBy('activities.updated_at')
-            ->orderBy('activities.updated_at');
+            ->orderBy('activities.updated_at', 'desc');
     }
 
     public function activities()

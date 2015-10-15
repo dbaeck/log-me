@@ -27,7 +27,7 @@ class ActivityTracker extends Controller
     {
 //        dd($this->user->recentProjects()->get());
         return view('welcome')
-            ->with('projects', $this->user->recentProjects())
+            ->with('projects', $this->user->recentProjects()->get())
             ->with('tags', $this->user->tagsWithCount()->get())
             ->with('activities', $this->user->activities()->recent()->get());
     }

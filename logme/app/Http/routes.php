@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'ActivityTracker@index');
+Route::get('/', ['as' => 'home', 'uses' => 'ActivityTracker@index']);
 Route::post('/log', ['as' => 'api::log', 'uses' => 'ActivityTracker@store']);
 Route::get('/tags', ['as' => 'api::tags', 'uses' => 'ActivityTracker@tags']);
 

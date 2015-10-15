@@ -2,13 +2,14 @@
 
 @section('content')
     <div class="row">
+        <div class="col-md-12"><br/><br/><br/></div>
         <div class="col-md-12">
             <div class="col-md-6 col-md-offset-3" id="entry">
                 @include('tracking')
             </div>
         </div>
         <div class="col-md-12">
-            <hr/>
+            <br/><br/><br/><hr/>
         </div>
         <div class="col-md-8">
             <div class="panel panel-default">
