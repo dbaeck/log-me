@@ -25,7 +25,7 @@
 <nav id="navigation" class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">
     <a class="navmenu-brand" href="{{ route('home') }}">Track Something!</a>
     <ul class="nav navmenu-nav">
-        <li><a href="{{ route('home') }}">My Times</a></li>
+        <li><a href="{{ route('web::time') }}">My Times</a></li>
     </ul>
 </nav>
 <div class="container" id="content-container">
@@ -33,6 +33,8 @@
 </div>
 
 <script src="{{ asset('dependencies.js') }}"></script>
+@include('includes.jsinsert')
+@include('footer')
 <script src="{{ asset('app.js') }}"></script>
 </body>
 </html>

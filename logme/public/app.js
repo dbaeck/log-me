@@ -37,6 +37,36 @@ $(document).ready(function(){
             el.jQCloud(data);
         });
     });
+
+    var data = {
+        labels : [],
+        series : [[]]
+    };
+
+    var dataPeriod = {
+        labels : [],
+        series : [[]]
+    };
+
+    projects.forEach(function(e, idx){
+        data.labels.push(e.title);
+        data.series[0].push(e.total/60);
+    });
+
+    activities.forEach(function(e, idx){
+        dataPeriod.labels.push(e.starttime);
+        dataPeriod.series[0].push(e.value/60);
+    });
+
+    // Create a new line chart object where as first parameter we pass in a selector
+    // that is resolving to our chart container element. The Second parameter
+    // is the actual data object.
+    new Chartist.Bar('.ct-chart-total', data, {
+        reverseData: true,
+        horizontalBars: true
+    });
+
+    new Chartist.Line('.ct-chart-period', dataPeriod);
 });
 
 new Vue({
