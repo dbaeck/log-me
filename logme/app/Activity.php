@@ -50,7 +50,17 @@ class Activity extends Model
 
         foreach($tokenizer->projects as $projectStr)
         {
-            $project = $user->projects()->where('title', $projectStr)->firstOrFail();
+            $project = $user->projects()->where('title', $projectStr)->first();
+
+            if(!isset($project->id))
+            {
+                $project = Project::create([
+                    'title' => $projectStr,
+                    'user_id' => $user->id,
+                    'value_type_id' => ValueType::firstOrCreate(['key' => 'time'])
+                ]);
+            }
+
             $activity = new Activity([
                 'user_id' => $user->id,
                 'project_id' => $project->id,
