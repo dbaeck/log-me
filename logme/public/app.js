@@ -50,12 +50,12 @@ $(document).ready(function(){
 
     projects.forEach(function(e, idx){
         data.labels.push(e.title);
-        data.series[0].push(e.total/60);
+        data.series[0].push(e.total/3600);
     });
 
     activities.forEach(function(e, idx){
-        dataPeriod.labels.push(e.starttime);
-        dataPeriod.series[0].push(e.value/60);
+        dataPeriod.labels.push(e.day);
+        dataPeriod.series[0].push(e.value/3600);
     });
 
     // Create a new line chart object where as first parameter we pass in a selector
@@ -66,7 +66,12 @@ $(document).ready(function(){
         horizontalBars: true
     });
 
-    new Chartist.Line('.ct-chart-period', dataPeriod);
+    new Chartist.Line('.ct-chart-period', dataPeriod, {
+        lineSmooth: Chartist.Interpolation.simple({
+            divisor: 2
+        }),
+        low: 0
+    });
 });
 
 new Vue({
