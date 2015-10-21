@@ -5,3 +5,5 @@
 logme/.idea/*
 logme/bower_components/*
 logme/.env.behat
+logme/.env.0xdb
+logme/.env.local
