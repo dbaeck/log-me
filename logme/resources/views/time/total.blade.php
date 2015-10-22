@@ -1,1 +1,1 @@
-<div class="ct-chart ct-perfect-fourth ct-chart-total"></div>
+<div class="ct-chart ct-square ct-chart-total"></div>
